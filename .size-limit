@@ -1,0 +1,7 @@
+[
+  {
+    "path": "qwery.js",
+    "limit": "900 B",
+    "webpack": false
+  }
+]

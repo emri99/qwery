@@ -1,29 +1,50 @@
 {
   "name": "qwery",
+  "license": "MIT",
   "description": "blazing fast CSS3 query selector engine",
   "version": "4.0.0",
-  "homepage": "https://github.com/ded/qwery",
+  "homepage": "https://github.com/emri99/qwery",
   "author": "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)",
   "contributors": [
     "Rod Vagg (https://github.com/rvagg)",
     "Andrew McCollum (https://github.com/amccollum)"
   ],
   "main": "./qwery.js",
+  "module": "src/index.js",
   "keywords": [
-    "ender",
     "query",
     "css",
     "selector engine"
   ],
-  "ender": "./src/ender.js",
+  "scripts": {
+    "build": "rollup -c && npm run minify",
+    "minify": "npx uglifyjs -b beautify=false,preamble='\"/*! https://github.com/emri99/qwery */\"' --ecma 5 -c -m -o qwery.min.js qwery.js",
+    "lint": "npx eslint src/*.js tests/*.test.js",
+    "pretest": "npm run build",
+    "test": "npx jest && npm run lint",
+    "size": "npx size-limit",
+    "prepublish": "npm run build && npm run size"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ded/qwery.git"
+    "url": "https://github.com/emri99/qwery.git"
   },
   "devDependencies": {
-    "sink-test": ">= 1.0.1",
-    "serve": "*",
-    "smoosh": "0.4.0",
-    "phantom": "0.5.4"
-  }
+    "eslint": "^5.12.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^23.6.0",
+    "jest-puppeteer": "^3.8.0",
+    "phantom": "^6.0.3",
+    "puppeteer": "^1.11.0",
+    "rollup": "^1.1.0",
+    "serve": "^10.1.1",
+    "sink-test": "^1.0.2",
+    "size-limit": "^0.21.1",
+    "uglify-es": "^3.3.9"
+  },
+  "dependencies": {}
 }
