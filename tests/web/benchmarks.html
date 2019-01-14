@@ -45,17 +45,16 @@
     </style>
     <script src="../../vendor/nw.js"></script>
     <script src="../../vendor/sizzle.js"></script>
+    <script src="../../vendor/dollardom.min.js"></script>
     <script src="../../qwery.js"></script>
-    <script type="text/javascript">
-      var qwerynew = qwery
-    </script>
-    <script src="../../qwery.js"></script>
-    <script type="text/javascript">
-      var qweryold = qwery
-    </script>
   </head>
   <body>
     <h1>Selector Benchmarks</h1>
+    <div>
+      <a target="_blank" href="https://sizzlejs.com/">Sizzle</a>
+      <a target="_blank" href="https://github.com/dperini/nwmatcher">NW</a>
+      <a target="_blank" href="http://julienw.github.io/dollardom">$dom</a>
+    </div>
     <div id="results"></div>
     <div foo="bar"></div>
     <div class="a"></div>
@@ -125,8 +124,8 @@
        var libs = [
               { fn: Sizzle, id: 'Sizzle' }
             , { fn: NW.Dom.select, id: 'NW' }
-            , { fn: qwerynew, id: 'Qwery (new)' }
-            , { fn: qweryold, id: 'Qwery (old)' }
+            , { fn: $dom.get, id: '$dom' }
+            , { fn: qwery, id: 'Qwery' }
           ]
 
       var libidx = 0, testidx = 0, iterations
