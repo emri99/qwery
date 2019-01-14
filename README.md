@@ -1,4 +1,5 @@
-## Qwery
+## Qwery [![Build Status](https://travis-ci.org/emri99/qwery.svg?branch=master)](https://travis-ci.org/emri99/qwery)
+
 Qwery is a modern selector engine built on top of `querySelectorAll` giving you practical utility.
 
 ### Browser Support
@@ -20,8 +21,8 @@ qwery(selector, context)
 
 |Argument|Type|Default|Description|
 ---|---|:---:|:--|
-`selector` | `string | Element | Element[]` | - | a css selector, an element, or an array of elements|
-`context` | `string | Element | Element[]` | `document` | a css selector, an element, or an array of elements (only first item will be used as context)
+`selector` | `string\|Element\|Element[]` | - | a css selector, an element, or an array of elements|
+`context` | `string\|Element\|Element[]` | `document` | a css selector, an element, or an array of elements (only first item will be used as context)
 
 When using a `context`, elements will be search inside this context.
 
