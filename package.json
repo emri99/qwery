@@ -17,13 +17,13 @@
     "selector engine"
   ],
   "scripts": {
-    "build": "rollup -c && npm run minify",
+    "build": "rollup -c",
     "minify": "npx uglifyjs -b beautify=false,preamble='\"/*! https://github.com/emri99/qwery */\"' --ecma 5 -c -m -o qwery.min.js qwery.js",
     "lint": "npx eslint src/*.js tests/*.test.js",
     "pretest": "npm run build",
     "test": "npx jest && npm run lint",
     "size": "npx size-limit",
-    "prepublish": "npm run build && npm run size"
+    "prepublish": "npm run build && npm run minify && npm run size"
   },
   "repository": {
     "type": "git",
